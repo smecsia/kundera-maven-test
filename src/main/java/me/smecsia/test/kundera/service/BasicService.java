@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Copyright (c) 2012 i-Free. All Rights Reserved.
  *
  * @author Ilya Sadykov
  *         Date: 27.09.12

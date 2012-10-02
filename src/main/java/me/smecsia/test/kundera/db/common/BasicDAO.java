@@ -5,8 +5,6 @@ import javax.persistence.EntityManagerFactory;
 import java.util.List;
 
 /**
- * Copyright (c) 2012 i-Free. All Rights Reserved.
- *
  * @author Ilya Sadykov
  *         Date: 26.09.12
  *         Time: 18:33

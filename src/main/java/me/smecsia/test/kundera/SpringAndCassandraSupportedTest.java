@@ -13,8 +13,6 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import java.io.IOException;
 
 /**
- * Copyright (c) 2012 i-Free. All Rights Reserved.
- *
  * @author Ilya Sadykov
  *         Date: 02.10.12
  *         Time: 18:18

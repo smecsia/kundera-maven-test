@@ -5,7 +5,6 @@ import me.smecsia.test.kundera.db.common.AbstractEntity;
 import javax.persistence.*;
 
 /**
- * Copyright (c) 2012 i-Free. All Rights Reserved.
  *
  * @author Ilya Sadykov
  *         Date: 26.09.12

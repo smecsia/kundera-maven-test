@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * Service allowing to autowire fields into the instance of a bean
- * Copyright (c) 2012 i-Free. All Rights Reserved.
  *
  * @author: Ilya Sadykov
  * Date: 19.09.12
