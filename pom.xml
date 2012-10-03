@@ -11,7 +11,7 @@
         <spring.version>3.1.2.RELEASE</spring.version>
         <kundera.version>2.2-SNAPSHOT</kundera.version>
         <maven-antrun-plugin.version>1.7</maven-antrun-plugin.version>
-        <maven-surefire-plugin.version>2.3</maven-surefire-plugin.version>
+        <maven-surefire-plugin.version>2.9</maven-surefire-plugin.version>
     </properties>
     <repositories>
         <repository>
