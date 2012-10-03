@@ -17,7 +17,7 @@ import java.io.IOException;
  *         Date: 02.10.12
  *         Time: 18:18
  */
-public class SpringAndCassandraSupportedTest {
+public abstract class SpringAndCassandraSupportedTest {
     protected static EmbeddedCassandraService embeddedCassandraService;
     protected static ApplicationContext applicationContext;
     private static final String TEST_KEYSPACE_NAME = "KunderaTest";
@@ -40,6 +40,7 @@ public class SpringAndCassandraSupportedTest {
         embeddedCassandraService = new EmbeddedCassandraService(CASSANDRA_CONFIG_FILE);
         embeddedCassandraService.cleanupStorage();
         embeddedCassandraService.init();
+        createKeySpaceIfNotExist();
         applicationContext = new ClassPathXmlApplicationContext(SPRING_CONFIG_FILE);
     }
 
