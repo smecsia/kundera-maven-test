@@ -1,9 +1,7 @@
 package me.smecsia.test.kundera.db.common;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-
-import javax.persistence.EntityManagerFactory;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  * @author Ilya Sadykov
@@ -11,13 +9,12 @@ import javax.persistence.EntityManagerFactory;
  *         Time: 19:06
  */
 public class AbstractNosqlDAO<T extends BasicEntity> extends AbstractDAO<T> implements NosqlDAO<T> {
-    @Autowired
-    @Qualifier("nosqlEntityManagerFactory")
-    private EntityManagerFactory entityManagerFactory;
+    @PersistenceContext(unitName = "nosql")
+    private EntityManager entityManager;
 
     @Override
-    public EntityManagerFactory getEntityManagerFactory() {
-        return entityManagerFactory;
+    public EntityManager getEntityManager() {
+        return entityManager;
     }
 
 }

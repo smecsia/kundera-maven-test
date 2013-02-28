@@ -5,9 +5,6 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
-import javax.persistence.FlushModeType;
 import java.util.List;
 
 /**
@@ -23,8 +20,6 @@ public abstract class AbstractDAO<T extends BasicEntity> implements BasicDAO<T> 
 
     final protected Class<T> entityContextClass;
 
-    private EntityManager entityManager;
-
     @SuppressWarnings("unchecked")
     protected AbstractDAO() {
         if (getClass().getAnnotation(EntityContext.class) != null) {
@@ -39,33 +34,18 @@ public abstract class AbstractDAO<T extends BasicEntity> implements BasicDAO<T> 
     }
 
     @Override
-    public synchronized EntityManager getEntityManager() {
-        if (entityManager == null) {
-            entityManager = getEntityManagerFactory().createEntityManager();
-            entityManager.setFlushMode(FlushModeType.COMMIT);
-        }
-        return entityManager;
-    }
-
-    @Override
     public T find(Object id) {
-        return entityManager.find(entityContextClass, id);
+        return getEntityManager().find(entityContextClass, id);
     }
 
     @Override
     public void save(T entity) {
-        EntityTransaction t = getEntityManager().getTransaction();
-        t.begin();
         getEntityManager().persist(entity);
-        t.commit();
     }
 
     @Override
     public void deleteAll() {
-        EntityTransaction t = getEntityManager().getTransaction();
-        t.begin();
         getEntityManager().createQuery("delete  from " + entityContextClass.getSimpleName() + " t").executeUpdate();
-        t.commit();
     }
 
     @Override

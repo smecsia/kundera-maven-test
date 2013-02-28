@@ -5,13 +5,10 @@
     <persistence-unit name="nosql">
         <provider>com.impetus.kundera.KunderaPersistence</provider>
         <class>me.smecsia.test.kundera.db.entity.ChatLogEntity</class>
+        <class>me.smecsia.test.kundera.db.entity.Stats</class>
+        <class>me.smecsia.test.kundera.db.entity.StatId</class>
         <exclude-unlisted-classes>true</exclude-unlisted-classes>
         <properties>
-            <property name="kundera.nodes" value="localhost"/>
-            <property name="kundera.port" value="39160"/>
-            <property name="kundera.keyspace" value="KunderaTest"/>
-            <property name="kundera.dialect" value="cassandra"/>
-            <property name="kundera.client.lookup.class" value="com.impetus.client.cassandra.pelops.PelopsClientFactory" />
             <property name="kundera.annotations.scan.package" value="me.smecsia.test.kundera.db.entity" />
             <property name="kundera.ddl.auto.prepare" value="create" />
             <property name="kundera.cache.provider.class" value="com.impetus.kundera.cache.ehcache.EhCacheProvider"/>

@@ -18,7 +18,5 @@ public interface BasicDAO<T> {
 
     void deleteAll();
 
-    EntityManagerFactory getEntityManagerFactory();
-
     EntityManager getEntityManager();
 }

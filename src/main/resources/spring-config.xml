@@ -8,12 +8,22 @@
            http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd">
     <context:component-scan base-package="me.smecsia.test.kundera"/>
     <context:annotation-config />
+    <context:property-placeholder location="classpath*:/META-INF/app.properties"/>
     <bean id="entityManagerFactory" abstract="true"
           class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="persistenceXmlLocation" value="classpath*:/META-INF/persistence.xml"/>
     </bean>
     <bean id="nosqlEntityManagerFactory" parent="entityManagerFactory">
         <property name="persistenceUnitName" value="nosql"/>
+        <property name="jpaProperties">
+            <props>
+                <prop key="kundera.nodes">${db.nosql.kundera.nodes}</prop>
+                <prop key="kundera.port">${db.nosql.kundera.port}</prop>
+                <prop key="kundera.keyspace">${db.nosql.kundera.keyspace}</prop>
+                <prop key="kundera.dialect">${db.nosql.kundera.dialect}</prop>
+                <prop key="kundera.client.lookup.class">${db.nosql.kundera.lookup.class}</prop>
+            </props>
+        </property>
     </bean>
 
 
